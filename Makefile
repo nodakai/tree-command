@@ -18,9 +18,9 @@ prefix = /usr/local
 
 VERSION=1.4
 TREE_DEST=tree
-BINDIR=$(DESTDIR)/usr/bin
+BINDIR=${prefix}/bin
 MAN=tree.1
-MANDIR=$(DESTDIR)/usr/share/man/man1
+MANDIR=${prefix}/man/man1
 
 all:	tree
 

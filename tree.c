@@ -23,15 +23,10 @@
 #include <locale.h>
 
 static char *version = "$Version: $ tree v1.4b1 (c) 1996 - 2002 by Steve Baker, Thomas Moore $";
-static char *hversion= "tree v1.4b1 \251 1996 - 2002 by Steve Baker and Thomas Moore\
-<BR>HTML output hacked and copyleft \251 1998 by Francesc Rocher\
-<BR>This software is experimental. Send commends and/or
+static char *hversion= "tree v1.4b1 \251 1996 - 2002 by Steve Baker and Thomas Moore\n\
+<BR>HTML output hacked and copyleft \251 1998 by Francesc Rocher\n\
+<BR>This software is experimental. Send commends and/or\n\
 <BR>suggestions to <A HREF=\"mailto:rocher@econ.udg.es\">rocher@econ.udg.es</A>";
-
-/* This is to deal with the Hurd environment which doesn't define PATH_MAX */
-#ifndef PATH_MAX
-#define PATH_MAX 4096
-#endif
 
 #define scopy(x)	strcpy(xmalloc(strlen(x)+1),(x))
 #define MAXDIRLEVEL	4096	/* BAD, it's possible to overflow this. */
@@ -1134,7 +1129,6 @@ void parse_dir_colors()
 	e->nxt = ext;
 	ext = e;
       }
-    default:
     }
   }
 
