@@ -1427,20 +1427,9 @@ char **split(char *str, char *delim, int *nwrds)
 
   w[*nwrds = 0] = strtok(str,delim);
 
-<<<<<<< HEAD
-  arg[0] = b;
-  while(*b && *b != '=') b++;
-  if(*b) {
-    *b = 0;
-    b++;
-    arg[1] = b;
-  } else {
-    arg[1] = 0;
-=======
   while (w[*nwrds]) {
     if (*nwrds == (n-2)) w = xrealloc(w,sizeof(char *) * (n+=256));
     w[++(*nwrds)] = strtok(NULL,delim);
->>>>>>> upstream
   }
 
   w[*nwrds] = NULL;

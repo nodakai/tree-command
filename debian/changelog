@@ -1,3 +1,22 @@
+tree (1.5.0-1) unstable; urgency=medium
+
+  * This should really go into Sarge
+  * New upstream release, changes include
+    + Added -T option to change title and H1 header in HTML output
+      (Closes: #193136)
+    + Added -r option to reverse alpha sort output, ala. 'ls -r'
+      (Closes: #193356)
+    + Better support for Locales and printing utf-8 encoded characters in
+      filenames (still hackish) (Closes: #114791)
+    + Fixed -t to alphasort files with same time-stamps (Closes: #193357)
+    + Fixed encoding of filenames in HTML output (Closes: #181738)
+    + Changed license from "Artistic License" to GPLv2
+    + compiles cleanly with gcc-3.4 (Closes: #266236)
+  * debian/copyright: reflect license change
+  * debian/rules: adjust LDFLAGS for nostrip
+
+ -- Florian Ernst <florian_ernst@gmx.net>  Wed, 18 Aug 2004 11:12:03 +0200
+
 tree (1.4b3-2) unstable; urgency=low
 
   * Added sanity check to split function. Thanks, Kototama! (Closes: #259998)

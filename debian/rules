@@ -6,6 +6,9 @@
 
 PREFIX = $(CURDIR)/debian/tree/usr
 MANDIR = $(PREFIX)/share/man/man1
+# Leave LDFLAGS empty so symbol table and relocation information won't be
+# removed from the executable; dh_strip takes care of this when needed
+LDFLAGS =
 CFLAGS = -Wall -g -fomit-frame-pointer -DLINUX_BIGFILE
 ifneq (,$(findstring noopt, $(DEB_BUILD_OPTIONS)))
         CFLAGS += -O0
@@ -16,7 +19,7 @@ endif
 build: build-stamp
 build-stamp:
 	dh_testdir
-	$(MAKE) CFLAGS="$(CFLAGS)"
+	$(MAKE) CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 	touch $@
 
 clean:
