@@ -2,6 +2,12 @@ This is a Debian prepackaged version of tree, the directory tree lister.
 
 It was downloaded from http://mama.indstate.edu/users/ice/tree/
 
+The current maintainer of this package is Florian Ernst <florian_ernst@gmx.net>,
+the previous maintainers were
+Joey Hess      (until 17 Feb 1997)
+Scott K. Ellis (until 14 Jul 2004)
+
+
 The following copyright applies to this package:
 
 

@@ -1,3 +1,28 @@
+tree (1.4b3-1) unstable; urgency=low
+
+  * New maintainer
+  * New upstream release (Closes: #252722)
+    + adds LargeFileSupport (Closes: #254011)
+  * Additional patches:
+    + don't set GENERATOR META info to "Linux" (Closes: #203143)
+    + better document -l switch (Closes: #162332)
+    + s/font-weight/font-size/g
+    + cosmetical fix in HTML output
+    + adjust Makefile for nostrip
+  * debian/copyright: add note about previous and current maintainer
+  * debian/control:
+    + add upstream home page
+    + bumped Standards-Version to 3.6.1
+  * debian/rules:
+    + streamlined, best practices
+    + added check for noopt
+  * debian/watch: added
+  * Dropped unneeded postinst and prerm
+  * Acknowledge NMUs (Closes: #195058, #114791, #162259, #76594, #152385)
+    Thanks to Uli Martens and Susan Kleinmann!
+
+ -- Florian Ernst <florian_ernst@gmx.net>  Wed, 14 Jul 2004 11:12:28 +0200
+
 tree (1.4b2-0.2.1) unstable; urgency=low
 
   * NMU

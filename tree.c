@@ -337,16 +337,16 @@ int main(int argc, char **argv)
     fprintf(outfile,"\t\t<title>Tree Output</title>\n");
     fprintf(outfile,"\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n");
     fprintf(outfile,"\t\t<meta name=\"Author\" content=\"Made by 'tree'\">\n");
-    fprintf(outfile,"\t\t<meta name=\"GENERATOR\" content=\"Linux\">\n");
+    fprintf(outfile,"\t\t<meta name=\"GENERATOR\" content=\"%s\">\n", version);
     fprintf(outfile,"\t\t<style type=\"text/css\">\n\t\t\t<!-- \n");
     fprintf(outfile,"\t\t\tBODY { font-family : courier, monospace, sans-serif; }\n");
-    fprintf(outfile,"\t\t\tP { font-weight: normal; font-family : courier, monospace, sans-serif; color: black; background-color: transparent;}\n");
-    fprintf(outfile,"\t\t\tB { font-weight: normal; color: black; background-color: transparent;}\n");
-    fprintf(outfile,"\t\t\tA:visited { font-weight : normal; text-decoration : none; background-color : transparent; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
-    fprintf(outfile,"\t\t\tA:link    { font-weight : normal; text-decoration : none; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
-    fprintf(outfile,"\t\t\tA:hover   { color : #000000; font-weight : normal; text-decoration : underline; background-color : yellow; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
-    fprintf(outfile,"\t\t\tA:active  { color : #000000; font-weight: normal; background-color : transparent; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
-    fprintf(outfile,"\t\t\t.VERSION { font-weight: small; font-family : arial, sans-serif; }\n");
+    fprintf(outfile,"\t\t\tP { font-size: normal; font-family : courier, monospace, sans-serif; color: black; background-color: transparent;}\n");
+    fprintf(outfile,"\t\t\tB { font-size: normal; color: black; background-color: transparent;}\n");
+    fprintf(outfile,"\t\t\tA:visited { font-size : normal; text-decoration : none; background-color : transparent; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
+    fprintf(outfile,"\t\t\tA:link    { font-size : normal; text-decoration : none; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
+    fprintf(outfile,"\t\t\tA:hover   { color : #000000; font-size : normal; text-decoration : underline; background-color : yellow; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
+    fprintf(outfile,"\t\t\tA:active  { color : #000000; font-size: normal; background-color : transparent; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }\n");
+    fprintf(outfile,"\t\t\t.VERSION { font-size: small; font-family : arial, sans-serif; }\n");
 
     /* We can use CSS for nolinks as well */
     fprintf(outfile,"\t\t\t.NORM { color: black; background-color: transparent;}\n");
@@ -369,7 +369,7 @@ int main(int argc, char **argv)
       else fprintf(outfile,"%s\n",host);
     } else {
       if (force_color) fprintf(outfile,"<a class=\"NORM\" href=\"%s\">%s</a>\n",host,host);
-      else fprintf(outfile,"<a href=\"%s\">%s</A>\n",host,host);
+      else fprintf(outfile,"<a href=\"%s\">%s</a>\n",host,host);
     }
     curdir = gnu_getcwd();
   }

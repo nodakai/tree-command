@@ -42,7 +42,7 @@ install:
 	install -d $(BINDIR)
 	install -d $(MANDIR)
 	if [ -e $(TREE_DEST) ]; then \
-		install -s $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
+		install $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
 	fi
 	install $(MAN) $(MANDIR)/$(MAN)
 

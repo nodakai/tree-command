@@ -94,7 +94,7 @@ detected.
 Stay on the current file-system only.  Ala \fBfind \fI-xdev\fP.
 .PP
 .TP
-\fB -P \fIpattern\fP
+.B -P \fIpattern\fP
 List only those files that match the wild-card \fIpattern\fP.  Note: you must use
 the \fI-a\fP option to also consider those files beginning with a dot `.' for
 matching.  Valid wildcard operators are `*' (any zero or more characters), `?' (any
@@ -104,7 +104,8 @@ not listed in brackets).
 .PP
 .TP
 .B -I \fIpattern\fP
-Do not list those files that match the wild-card \fIpattern\fP.
+Do not list those files that match the wild-card \fIpattern\fP.  Note: only a single
+pattern will be accepted.
 .PP
 .TP
 .B -p
