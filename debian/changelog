@@ -1,3 +1,17 @@
+tree (1.3-2) unstable; urgency=low
+
+  * Add PATH_MAX fallback define to compile on Hurd (Closes: #107051, #105432)
+  * Fix typo in manpage (Closes #106806)
+
+ -- Scott K. Ellis <scott@debian.org>  Tue, 20 Nov 2001 19:52:42 -0500
+
+tree (1.3-1) unstable; urgency=low
+
+  * Maintainer upload
+  * Rebuild with debhelper
+
+ -- Scott K. Ellis <scott@debian.org>  Tue,  9 May 2000 09:34:59 -0400
+
 tree (1.3-0.1) unstable; urgency=low
 
   * Non-maintainer upload.

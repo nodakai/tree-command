@@ -12,9 +12,9 @@ LDFLAGS=-s
 
 VERSION=1.3
 TREE_DEST=tree
-BINDIR=$(PREFIX)/usr/bin
+BINDIR=$(DESTDIR)/usr/bin
 MAN=tree.1
-MANDIR=$(PREFIX)/usr/share/man/man1
+MANDIR=$(DESTDIR)/usr/share/man/man1
 
 all:	tree
 
@@ -33,7 +33,7 @@ install:
 	if [ -e $(TREE_DEST) ]; then \
 		install -s $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
 	fi
-	install -m644 $(MAN) $(MANDIR)/$(MAN)
+	install $(MAN) $(MANDIR)/$(MAN)
 
 distclean:
 	if [ -e tree.o ]; then rm *.o; fi

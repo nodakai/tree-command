@@ -1,7 +1,10 @@
-#!/bin/sh
+#! /bin/sh
+# prerm script for tree
 
 set -e
 
-if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/doc/tree ]; then
-        rm -f /usr/doc/tree
-fi
+#DEBHELPER#
+
+exit 0
+
+

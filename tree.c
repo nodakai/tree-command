@@ -27,6 +27,11 @@ static char *hversion= "tree v1.3 \251 1996 - 1999 by Steve Baker and Thomas Moo
 <BR>This software is experimental. Send commends and/or
 <BR>suggestions to <A HREF=\"mailto:rocher@econ.udg.es\">rocher@econ.udg.es</A>";
 
+/* This is to deal with the Hurd environment which doesn't define PATH_MAX */
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
+
 #define scopy(x)	strcpy(xmalloc(strlen(x)+1),(x))
 
 #define MAXDIRLEVEL	4096	/* BAD, it's possible to overflow this. */
