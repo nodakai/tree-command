@@ -1266,10 +1266,14 @@ char **split(char *b)
   static char *arg[2];
 
   arg[0] = b;
-  while(*b != '=') b++;
-  *b = 0;
-  b++;
-  arg[1] = b;
+  while(*b && *b != '=') b++;
+  if(*b) {
+    *b = 0;
+    b++;
+    arg[1] = b;
+  } else {
+    arg[1] = 0;
+  }
 
   return arg;
 }

@@ -1,3 +1,11 @@
+tree (1.4b3-2) unstable; urgency=low
+
+  * Added sanity check to split function. Thanks, Kototama! (Closes: #259998)
+  * debian/rules: s/dh_installmanpages/dh_installman/
+  * debian/watch: now really added
+
+ -- Florian Ernst <florian_ernst@gmx.net>  Tue, 27 Jul 2004 15:17:37 +0200
+
 tree (1.4b3-1) unstable; urgency=low
 
   * New maintainer

@@ -39,7 +39,7 @@ binary-arch: build install
 	dh_testdir
 	dh_testroot
 	dh_installdocs README
-	dh_installmanpages tree.1
+	dh_installman tree.1
 	dh_installchangelogs CHANGES
 	dh_link
 	dh_strip
