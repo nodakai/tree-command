@@ -1,7 +1,7 @@
 Source: tree
 Section: utils
 Priority: optional
-Maintainer: Florian Ernst <florian_ernst@gmx.net>
+Maintainer: Florian Ernst <florian@debian.org>
 Build-Depends: debhelper (>= 3.0.0)
 Standards-Version: 3.6.1
 

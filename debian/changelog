@@ -1,3 +1,11 @@
+tree (1.5.0-2) unstable; urgency=low
+
+  * New maintainer address, many thanks to Eduard Bloch and Andreas Barth
+    for previous sponsoring
+  * reintroduce PATH_MAX definition to allow building on Hurd, see #105432
+
+ -- Florian Ernst <florian@debian.org>  Wed, 30 Mar 2005 19:50:06 +0200
+
 tree (1.5.0-1) unstable; urgency=medium
 
   * This should really go into Sarge

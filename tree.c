@@ -75,6 +75,10 @@ static char *hversion="\t\t\t tree v1.5.0 %s 1996 - 2004 by Steve Baker and Thom
 enum bool {FALSE=0, TRUE};
 #endif
 
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
+
 struct _info {
   char *name;
   char *lnk;
