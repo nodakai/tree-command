@@ -1,3 +1,15 @@
+tree (1.5.1-1) unstable; urgency=low
+
+  * New upstream release, changes include
+    + Fixed missing <br>'s when -i option used with -H (Closes: #314198)
+    + Added -h option for human readable output (Closes: #315185)
+  * debian/copyright: update FSF address
+  * debian/changelog: remove cruft from end of file
+  * debhelper compatibility level 5
+  * Standards-Version 3.7.2
+
+ -- Florian Ernst <florian@debian.org>  Tue, 23 Jan 2007 13:09:38 +0100
+
 tree (1.5.0-2) unstable; urgency=low
 
   * New maintainer address, many thanks to Eduard Bloch and Andreas Barth
@@ -180,6 +192,3 @@ tree (1.1-1) unstable; urgency=low
 1.0-1   
   * Initial release
 
-Local variables:
-mode: debian-changelog
-End:
