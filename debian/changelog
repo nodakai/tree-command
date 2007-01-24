@@ -1,3 +1,9 @@
+tree (1.5.1-2) unstable; urgency=low
+
+  * Fix manpage typo, thanks once more to A. Costa (Closes: #408326)
+
+ -- Florian Ernst <florian@debian.org>  Thu, 25 Jan 2007 00:22:12 +0100
+
 tree (1.5.1-1) unstable; urgency=low
 
   * New upstream release, changes include
