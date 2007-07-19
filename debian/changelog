@@ -1,3 +1,10 @@
+tree (1.5.1.1-1) unstable; urgency=low
+
+  * New upstream release
+    + Fixes linebreaks in HTML output (Closes: #429454)
+
+ -- Florian Ernst <florian@debian.org>  Thu, 19 Jul 2007 10:35:06 +0200
+
 tree (1.5.1-2) unstable; urgency=low
 
   * Fix manpage typo, thanks once more to A. Costa (Closes: #408326)
