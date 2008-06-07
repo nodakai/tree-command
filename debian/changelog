@@ -1,3 +1,12 @@
+tree (1.5.1.2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control: move Homepage to its own field
+  * debian/copyright: update to 2008 info
+  * Standards-Version 3.7.3
+
+ -- Florian Ernst <florian@debian.org>  Sat, 07 Jun 2008 09:58:08 +0200
+
 tree (1.5.1.1-1) unstable; urgency=low
 
   * New upstream release

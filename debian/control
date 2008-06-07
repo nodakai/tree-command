@@ -3,7 +3,8 @@ Section: utils
 Priority: optional
 Maintainer: Florian Ernst <florian@debian.org>
 Build-Depends: debhelper (>= 5)
-Standards-Version: 3.7.2
+Standards-Version: 3.7.3
+Homepage: http://mama.indstate.edu/users/ice/tree/
 
 Package: tree
 Architecture: any
@@ -11,5 +12,3 @@ Depends: ${shlibs:Depends}
 Description: displays directory tree, in color
  Displays an indented directory tree, using the same color assignments as
  ls, via the LS_COLORS environment variable.
- .
-  Homepage: http://mama.indstate.edu/users/ice/tree/
