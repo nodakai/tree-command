@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: Florian Ernst <florian@debian.org>
 Build-Depends: debhelper (>= 5)
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Homepage: http://mama.indstate.edu/users/ice/tree/
 
 Package: tree

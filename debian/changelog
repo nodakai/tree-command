@@ -1,3 +1,11 @@
+tree (1.5.2.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Extend debian/copyright to cover newly added strverscmp.c
+  * Standards-Version 3.8.0
+
+ -- Florian Ernst <florian@debian.org>  Thu, 04 Sep 2008 22:37:46 +0200
+
 tree (1.5.2-1) unstable; urgency=low
 
   * New upstream release
