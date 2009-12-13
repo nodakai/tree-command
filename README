@@ -115,6 +115,16 @@ Craig McDaniel
 Christian Grigis
   - Noted that setlocale() should come before MB_CUR_MAX check.
 
+Kamaraju Kusumanchi
+  - Submitted patch to remove compiler warnings for Solaris.
+
+Martin Nagy
+  - Provided patch which fixes issue where indent may output more than it
+    should when dirs[*] is not properly cleared before use.
+
+William C. Lathan III
+  - Showed that tree was not properly quoting arguments to recursively called
+    tree instances when using -R.
 
 And many others whom I've failed to keep track of.  I should have started
 this list years ago.

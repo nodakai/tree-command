@@ -10,7 +10,7 @@ prefix = /usr
 
 CC=gcc
 
-VERSION=1.5.2.2
+VERSION=1.5.3
 TREE_DEST=tree
 BINDIR=${prefix}/bin
 MAN=tree.1
@@ -19,9 +19,9 @@ MANDIR=${prefix}/man/man1
 # Uncomment options below for your particular OS:
 
 # Linux defaults:
-#CFLAGS=-ggdb -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
-CFLAGS=-O2 -Wall -fomit-frame-pointer -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
-LDFLAGS=-s
+CFLAGS=-ggdb -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+#CFLAGS=-O2 -Wall -fomit-frame-pointer -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+#LDFLAGS=-s
 
 # Uncomment for FreeBSD:
 #CFLAGS=-O2 -Wall -fomit-frame-pointer
