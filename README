@@ -97,6 +97,12 @@ Zurd (?)
 John Nintendud
   - Pointed out broken HTML output in 1.5.1.
 
+Mark Braker
+  - Suggested --filelimit option.
+
+Michael Vogt
+  - Suggested -v option (version sort).
+
 And many others whom I've failed to keep track of.  I should have started
 this list years ago.
 
