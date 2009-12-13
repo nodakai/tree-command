@@ -9,13 +9,13 @@
 #> my name from the file itself.  (I assert my moral right of
 #> paternity under the Copyright, Designs and Patents Act 1988.)
 #
-# Heavily modified by Joey Hess <jeh22@cornell.edu>
+# Heavily modified by Joey Hess <joeyh@master.debian.org>
 #
 ##############################################################################
 #
 # NOTE: You shouldn't have to edit this file. Edit debian/config instead.
 # If you must edit this file to get your package to build properly, then
-# I have failed. Let me know; mail jeh22@cornell.edu.
+# I have failed. Let me know; mail me.
 #
 # (Currently not handled: multiple binary packages from 1 source package,
 # and binary-indep rule.)
@@ -23,6 +23,13 @@
 # NOTE: This file is designed so it doesn't need to be run as root. For
 # actions that require that the user be root, the root password will be
 # prompted for, if you're not already root.
+#
+##############################################################################
+#
+# Changelog:
+# * Use build-stamp instead of build.
+# * New email address.
+# * Added changelog.
 #
 ##############################################################################
 
@@ -44,15 +51,17 @@ preserve-stamp:
   endif
 	touch preserve-stamp
 
-build: preserve-stamp makefile-stamp
+build-stamp: preserve-stamp makefile-stamp
 	$(checkdir)
 	$(build_command)
-	touch build
+	touch build-stamp
+
+build: build-stamp
 
 clean: preserve-stamp makefile-stamp
 	$(checkdir)
   # Do actual cleaning up here.
-	-rm -f build
+	-rm -f build-stamp
 	$(clean_command)
 	-rm -rf *~ debian/*~ debian/files* $(clean_files)
 	$(clean_tmp)
@@ -75,40 +84,17 @@ binary-indep: build
 binary-arch: build
 	$(checkdir)
 	$(clean_tmp)
-	install -d debian/tmp debian/tmp/DEBIAN debian/tmp/usr/doc/$(package)
 	$(install_command)
-  # Compress manpages
-	-gzip -9v -r debian/tmp/usr/man/ debian/tmp/usr/X11R6/man/
-  # Install documentation files, compressed.
-  ifneq ($(strip $(docs)),)
-	cp $(docs) debian/tmp/usr/doc/$(package)
-	gzip -9v debian/tmp/usr/doc/$(package)/*
-  endif
-  # Install copyright file, don't compress.
-  ifneq ($(strip $(copyright)),)
-	cp $(copyright) debian/tmp/usr/doc/$(package)/copyright
-  endif
-  # Install examples, compressed.
-  ifneq ($(strip $(examples)),)
-	install -d debian/tmp/usr/doc/examples/$(package)
-	cp $(examples) debian/tmp/usr/doc/examples/$(package)
-	gzip -9v debian/tmp/usr/doc/examples/$(package)/*
-  endif
-  # Install other debian files if they exist.
-	-install -m 644 debian/changelog debian/tmp/usr/doc/$(package)/changelog.Debian
-	-gzip -9v debian/tmp/usr/doc/$(package)/changelog.Debian
-	-install -m 644 debian/conffiles debian/tmp/DEBIAN/conffiles
-	-install -m 755 debian/preinst debian/tmp/DEBIAN/preinst
-	-install -m 755 debian/postinst debian/tmp/DEBIAN/postinst
-	-install -m 755 debian/prerm debian/tmp/DEBIAN/prerm
-	-install -m 755 debian/postrm debian/tmp/DEBIAN/postrm
+  # Debstd handles lots of nasty details. This requires that the debmake
+  # package is installed.
+	debstd $(package) $(docs)
+
   # Generate control file.
-	dpkg-shlibdeps $(binfiles)
 	dpkg-gencontrol
   # Set permissions.
 	@[ "`whoami`" != root ] && \
 		echo -e "\n ** Enter root password to set file permissions."; \
-	su -c "debian/rules setperms"
+	sudo debian/rules setperms
   # Actually build the .deb file.
 	dpkg --build debian/tmp ..
 
@@ -132,7 +118,7 @@ define clean_tmp
 		if  [ "`whoami`" != root ]; then \
 			echo -e "\n ** Enter root password to remove debian/tmp."; \
 		fi; \
-		su -c "rm -rf debian/tmp"; \
+		sudo rm -rf debian/tmp; \
 	fi
 endef
 

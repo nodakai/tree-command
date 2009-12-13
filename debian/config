@@ -1,19 +1,14 @@
 # Edit this file to configure debian/rules to build a package.
 # No modification of debian/rules should be neccessary. (Famous last words!)
 #
-# File by Joey Hess <jeh22@cornell.edu>
+# File by Joey Hess <joeyh@master.debian.org>
 
 # What is the name of this package?
 package=tree
 
 # Files that go in directories under /doc.
-docs=README CHANGES
-examples=
+docs=CHANGES README
 copyright=debian/copyright
-
-# List here all executables that are produced, that we should run
-# dpkg-shlibdeps on.
-binfiles=$(package)
 
 # What file must exist in the current directory if the package is
 # properly unpacked here?

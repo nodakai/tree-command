@@ -1,6 +1,6 @@
 This is a Debian prepackaged version of tree, the directory tree lister.
 
-This package was put together by Joey Hess <jeh22@cornell.edu>, using
+This package was put together by Joey Hess <joeyh@master.debian.org>, using
 sources from:
 	ftp://sunsite.unc.edu/pub/Linux/utils/file/
 

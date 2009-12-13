@@ -1,22 +1,48 @@
+tree (1.2-3) unstable; urgency=low
+
+  * New Maintainer
+
+ -- Scott K. Ellis <storm@gate.net>  Mon, 17 Feb 1997 21:07:22 -0500
+
+tree (1.2-2) unstable; urgency=low
+
+  * Moved into section utils.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 9 Jan 1997 20:06:05 -0500
+
+tree (1.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Renamed CHANGES to changelog.upstream.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 6 Jan 1997 14:19:34 -0500
+
+tree (1.1.1-3) unstable; urgency=low
+
+  * New maintainer email address.
+  * Use debmake.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sat, 21 Dec 1996 00:43:52 -0500
+
 tree (1.1.1-2) unstable; urgency=low
 
   * Routine update of debian/rules.
   * Fixed permissions of manpage.
 
- -- Joey Hess <jeh22@cornell.edu>  Thu, 17 Oct 1996 01:40:32 -0400
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 17 Oct 1996 01:40:32 -0400
 
 tree (1.1.1-1) unstable; urgency=low
 
   * New upstream release
 
- -- Joey Hess <jeh22@cornell.edu>  Tue, 24 Sep 1996 23:32:40 -0400
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 24 Sep 1996 23:32:40 -0400
 
 tree (1.1-1) unstable; urgency=low
 
   * Updated to new packaging standard
   * New upstream release
 
- -- Joey Hess <jeh22@cornell.edu>  Tue, 24 Sep 1996 23:32:40 -0400
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 24 Sep 1996 23:32:40 -0400
 
 1.0-3
   * Fixed m68k problem: made Makefile more portable 
