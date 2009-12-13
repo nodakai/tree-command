@@ -40,7 +40,7 @@ LDFLAGS=-s
 
 prefix = /usr
 
-VERSION=1.5.1.2
+VERSION=1.5.2
 TREE_DEST=tree
 BINDIR=${prefix}/bin
 MAN=tree.1
