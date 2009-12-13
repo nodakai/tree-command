@@ -1,5 +1,5 @@
 # $Copyright: $
-# Copyright (c) 1996 - 2004 by Steve Baker
+# Copyright (c) 1996 - 2007 by Steve Baker
 # All Rights reserved
 #
 # This software is provided as is without any express or implied
@@ -40,7 +40,7 @@ LDFLAGS=-s
 
 prefix = /usr
 
-VERSION=1.5.1
+VERSION=1.5.1.1
 TREE_DEST=tree
 BINDIR=${prefix}/bin
 MAN=tree.1
