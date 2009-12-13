@@ -1,0 +1,12 @@
+Source: tree
+Section: misc
+Priority: optional
+Maintainer: Joey Hess <jeh22@cornell.edu>
+Standards-Version: 2.1.1.0
+
+Package: tree
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: displays directory tree, in color
+ Displays an indented directory tree, using the same color assignments as
+ ls, via the LS_COLORS environment variable.

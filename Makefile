@@ -11,9 +11,9 @@ CFLAGS=-O2 -fomit-frame-pointer #-m486
 LDFLAGS=-s
 
 TREE_DEST=tree
-BINDIR=/usr/local/bin
+BINDIR=$(PREFIX)/usr/bin
 MAN=tree.1
-MANDIR=/usr/man/man1
+MANDIR=$(PREFIX)/usr/man/man1
 
 all:	tree
 
@@ -31,4 +31,4 @@ install:
 	if [ -e $(TREE_DEST) ]; then \
 		install -s $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
 	fi
-	install $(MAN) $(MANDIR)/$(MAN)
+	install -m 644 $(MAN) $(MANDIR)/$(MAN)

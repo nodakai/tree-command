@@ -1,0 +1,27 @@
+This is a Debian prepackaged version of tree, the directory tree lister.
+
+This package was put together by Joey Hess <jeh22@cornell.edu>, using
+sources from:
+	ftp://sunsite.unc.edu/pub/Linux/utils/file/
+
+The following copyright applies to this package:
+
+From the README:
+
+  As always, feel free to use and abuse this peice of fluff.  Feel free to
+suggest modifications to it, but I'm not going to take criticisms on this
+one, since quite frankly, if you can't code something like this yourself,
+what the hell are you complaining about?
+
+                                                - Steve Baker
+                                                  ice@mama.indstate.edu
+From tree.c:
+
+/* $Copyright: $
+ * Copyright (c) 1996 by Steve Baker
+ * All Rights reserved
+ *
+ * This software is provided as is without any express or implied
+ * warranties, including, without limitation, the implied warranties
+ * of merchantability and fitness for a particular purpose.
+ */
