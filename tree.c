@@ -54,8 +54,8 @@
 #include <wchar.h>
 #include <wctype.h>
 
-static char *version ="$Version: $ tree v1.5.1 (c) 1996 - 2007 by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro $";
-static char *hversion="\t\t\t tree v1.5.1 %s 1996 - 2007 by Steve Baker and Thomas Moore <br>\n"
+static char *version ="$Version: $ tree v1.5.1.1 (c) 1996 - 2007 by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro $";
+static char *hversion="\t\t\t tree v1.5.1.1 %s 1996 - 2007 by Steve Baker and Thomas Moore <br>\n"
 		      "\t\t\t HTML output hacked and copyleft %s 1998 by Francesc Rocher <br>\n"
 		      "\t\t\t Charsets / OS/2 support %s 2001 by Kyosuke Tokoro\n";
 
@@ -366,7 +366,6 @@ int main(int argc, char **argv)
 	    if (!strncmp("--charset",argv[i],9)){
 	      j = 9;
 	      if (*(argv[i]+j) == '=') {
-		fprintf(stderr,"argv[%d]+9 == '='\n",i);
 		if (*(charset=(argv[i]+10))) {
 		  j = strlen(argv[i])-1;
 		  break;
@@ -375,7 +374,6 @@ int main(int argc, char **argv)
 	      if (argv[n] != NULL) {
 		charset=argv[n++];
 		j = strlen(argv[i])-1;
-		fprintf(stderr,"charset = '%s' (n=%d)\n",charset,n-1);
 	      } else {
 		initlinedraw(1);
 		exit(1);
@@ -781,10 +779,7 @@ void listdir(char *d, int *dt, int *ft, u_long lev, dev_t dev)
     } else *ft += 1;
     if (*(dir+1) && !*(dir+2)) dirs[lev] = 2;
     if (nlf) nlf = FALSE;
-    else {
-      if (Hflag) fprintf(outfile,"<br>");
-      fprintf(outfile,"\n");
-    }
+    else fprintf(outfile,"\n");
     dir++;
   }
   dirs[lev] = 0;
@@ -1048,7 +1043,7 @@ void indent()
     }
     if (dirs[0]) fprintf(outfile,"\033(B");
   } else {
-    if (Hflag) fprintf(outfile,"\t\t\t\t   ");
+    if (Hflag) fprintf(outfile,"<br>\t\t\t\t   ");
     for(i=0;dirs[i];i++) {
       fprintf(outfile,"%s ",
 	      dirs[i+1] ? (dirs[i]==1 ? linedraw->vert     : (Hflag? "&nbsp;&nbsp;&nbsp;" : "   ") )

@@ -94,6 +94,9 @@ Zurd (?)
   - Suggested removing trailing slash on user supplied directory names if -f
     option is used.
 
+John Nintendud
+  - Pointed out broken HTML output in 1.5.1.
+
 And many others whom I've failed to keep track of.  I should have started
 this list years ago.
 
