@@ -1,6 +1,6 @@
 tree (1.5.2.2-1) unstable; urgency=low
 
-  * New upstream release. Thanks to Steve Baker for explicitely fixing
+  * New upstream release. Thanks to Steve Baker for explicitly fixing
     + Current locale not used to display file name (Closes: #504217)
     + tree doesn't support 32 bit UIDs/GIDs (Closes: #440475)
   * debian/copyright: Update year
