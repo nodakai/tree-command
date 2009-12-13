@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+        if [ -d /usr/doc -a ! -e /usr/doc/tree -a -d /usr/share/doc/tree ]; then
+                ln -sf ../share/doc/tree /usr/doc/tree
+        fi
+fi

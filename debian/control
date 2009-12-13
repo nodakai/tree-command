@@ -2,7 +2,7 @@ Source: tree
 Section: utils
 Priority: optional
 Maintainer: Scott K. Ellis <scott@debian.org>
-Standards-Version: 2.3.0.1
+Standards-Version: 3.0.1
 
 Package: tree
 Architecture: any
