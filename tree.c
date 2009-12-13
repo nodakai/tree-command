@@ -55,8 +55,8 @@
 #include <wchar.h>
 #include <wctype.h>
 
-static char *version ="$Version: $ tree v1.5.2 (c) 1996 - 2008 by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro $";
-static char *hversion="\t\t\t tree v1.5.2 %s 1996 - 2008 by Steve Baker and Thomas Moore <br>\n"
+static char *version ="$Version: $ tree v1.5.2.1 (c) 1996 - 2008 by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro $";
+static char *hversion="\t\t\t tree v1.5.2.1 %s 1996 - 2008 by Steve Baker and Thomas Moore <br>\n"
 		      "\t\t\t HTML output hacked and copyleft %s 1998 by Francesc Rocher <br>\n"
 		      "\t\t\t Charsets / OS/2 support %s 2001 by Kyosuke Tokoro\n";
 
@@ -150,7 +150,7 @@ int dirsfirstsort(struct _info **, struct _info **);
 int findino(ino_t, dev_t);
 void *xmalloc(size_t), *xrealloc(void *, size_t);
 void listdir(char *, int *, int *, u_long, dev_t), usage(int);
-void parse_dir_colors(), printit(unsigned char *), free_dir(struct _info **), indent();
+void parse_dir_colors(), printit(char *), free_dir(struct _info **), indent();
 void saveino(ino_t, dev_t);
 char **split(char *, char *, int *);
 char *gidtoname(int), *uidtoname(int), *do_date(time_t);
@@ -164,6 +164,11 @@ void psize(char *buf, off_t size);
   char *prot(long);
 #else
   char *prot(u_short);
+#endif
+
+/* We use the strverscmp.c file if we're not linux */
+#if ! defined (LINUX)
+int strverscmp (const char *s1, const char *s2);
 #endif
 
 /* Globals */
@@ -181,15 +186,8 @@ char *sLevel, *curdir, *outfilename = NULL;
 FILE *outfile;
 int *dirs, maxdirs;
 
-/* Until I get rid of this hack, make it linux/cygwin only: */
-#if defined (CYGWIN)
-extern int MB_CUR_MAX;
-#elif defined (LINUX)
-extern size_t MB_CUR_MAX;
-#else 
-#define MB_CUR_MAX mb_cur_max
-int mb_cur_max = 0;
-#endif
+int mb_cur_max;
+
 
 int main(int argc, char **argv)
 {
@@ -206,6 +204,13 @@ int main(int argc, char **argv)
   dirs = xmalloc(sizeof(int) * (maxdirs=4096));
   dirs[0] = 0;
   Level = -1;
+
+/* Until I get rid of this hack, make it linux/cygwin only: */
+#if defined (LINUX) || defined (CYGWIN)
+  mb_cur_max = (int)MB_CUR_MAX;
+#else
+  mb_cur_max = 1;
+#endif
 
   setlocale(LC_CTYPE, "");
 
@@ -1221,7 +1226,7 @@ char *gidtoname(int gid)
   return t->name;
 }
 
-void printit(unsigned char *s)
+void printit(char *s)
 {
   int c;
 
@@ -1229,7 +1234,7 @@ void printit(unsigned char *s)
     fprintf(outfile,"%s",s);
     return;
   }
-  if (MB_CUR_MAX > 1) {
+  if (mb_cur_max > 1) {
     wchar_t *ws, *tp;
     ws = xmalloc(sizeof(wchar_t)* (c=(strlen(s)+1)));
     if (mbstowcs(ws,s,c) > 0) {
@@ -1245,7 +1250,7 @@ void printit(unsigned char *s)
     free(ws);
   }
   for(;*s;s++) {
-    c = *s;
+    c = (unsigned char)*s;
 #ifdef __EMX__
     if(_nls_is_dbcs_lead(*(unsigned char*)s)){
       putc(*s,outfile);
@@ -1255,7 +1260,7 @@ void printit(unsigned char *s)
       if (isprint(c)) putc(c,outfile);
       else {
 	if (qflag) {
-	  if (MB_CUR_MAX > 1 && c > 127) putc(c,outfile);
+	  if (mb_cur_max > 1 && c > 127) putc(c,outfile);
 	  else putc('?',outfile);
 	} else {
 	  if (c < ' ') fprintf(outfile,"^%c",c+'@');
