@@ -1,3 +1,23 @@
+tree (1.2-6) unstable; urgency=low
+
+  * Rebuild to remove bogus information from md5sums file.
+
+ -- Scott K. Ellis <scott@debian.org>  Mon,  9 Feb 1998 10:10:48 -0500
+
+tree (1.2-5) unstable; urgency=low
+
+  * Don't us sudo in debian/rules (fixes #15457)
+
+ -- Scott K. Ellis <scott@debian.org>  Mon, 19 Jan 1998 13:52:40 -0500
+
+tree (1.2-4) unstable; urgency=low
+
+  * Changed maintainer address to *@debian.org
+  * Rename upstream changelog (fixes bug #2639)
+  * Recompile with glibc.
+
+ -- Scott K. Ellis <scott@debian.org>  Wed, 18 Jun 1997 21:11:42 -0400
+
 tree (1.2-3) unstable; urgency=low
 
   * New Maintainer

@@ -1,8 +1,8 @@
 Source: tree
 Section: utils
 Priority: optional
-Maintainer: Scott K. Ellis <storm@gate.net>
-Standards-Version: 2.1.1.0
+Maintainer: Scott K. Ellis <scott@debian.org>
+Standards-Version: 2.3.0.1
 
 Package: tree
 Architecture: any

@@ -87,14 +87,11 @@ binary-arch: build
 	$(install_command)
   # Debstd handles lots of nasty details. This requires that the debmake
   # package is installed.
-	debstd $(package) $(docs)
+	debstd $(docs)
 
   # Generate control file.
 	dpkg-gencontrol
-  # Set permissions.
-	@[ "`whoami`" != root ] && \
-		echo -e "\n ** Enter root password to set file permissions."; \
-	sudo debian/rules setperms
+	debian/rules setperms
   # Actually build the .deb file.
 	dpkg --build debian/tmp ..
 
@@ -115,10 +112,7 @@ endef
 define clean_tmp
 	-rm -rf debian/tmp >/dev/null 2>&1
 	@if [ -d debian/tmp ]; then \
-		if  [ "`whoami`" != root ]; then \
-			echo -e "\n ** Enter root password to remove debian/tmp."; \
-		fi; \
-		sudo rm -rf debian/tmp; \
+		rm -rf debian/tmp; \
 	fi
 endef
 
