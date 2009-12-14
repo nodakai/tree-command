@@ -1,3 +1,20 @@
+tree (1.5.3-1) unstable; urgency=low
+
+  * Imported Upstream version 1.5.3, thanks to Steve Baker for explicitly
+    fixing
+    + Automatically select UTF-8 charset if TREE_CHARSET is not set, and the
+      locale is set to *UTF-8 (Closes: #407749)
+    + Use strcoll() instead of strcmp() to sort files based on locale if set
+      (Closes: #267395)
+    + Changed wording in tree(1) manpage (Closes: #556186)
+  * debian/changelog: fix lintian warning spelling-error-in-changelog
+  * debian/control: add Vcs-Browser and Vcs-Git
+  * Export modifications of upstream files to quilt patches
+    and change the source package format to 3.0 (quilt)
+  * Standards-Version: 3.8.3
+
+ -- Florian Ernst <florian@debian.org>  Mon, 14 Dec 2009 23:35:46 +0100
+
 tree (1.5.2.2-1) unstable; urgency=low
 
   * New upstream release. Thanks to Steve Baker for explicitly fixing
