@@ -5,6 +5,8 @@ Maintainer: Florian Ernst <florian@debian.org>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.8.0
 Homepage: http://mama.indstate.edu/users/ice/tree/
+Vcs-Browser: http://git.debian.org/?p=collab-maint/tree.git
+Vcs-Git: git://git.debian.org/collab-maint/tree.git
 
 Package: tree
 Architecture: any
