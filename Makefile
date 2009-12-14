@@ -86,7 +86,7 @@ install: tree
 	install -d $(BINDIR)
 	install -d $(MANDIR)
 	if [ -e $(TREE_DEST) ]; then \
-		install $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
+		install -s $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
 	fi
 	install man/$(MAN) $(MANDIR)/$(MAN)
 

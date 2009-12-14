@@ -1,0 +1,21 @@
+Author: Marcus Brinkmann <Marcus.Brinkmann@ruhr-uni-bochum.de>
+Origin: vendor, http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=105432#5
+Bug-Debian: http://bugs.debian.org/105432
+Description: This symbol is only defined on systems with a fixed path length
+ limit. The Hurd does not have such a limit, so it isn't defined. The program
+ should deal with arbitrary long path names, but adding this patch will handle
+ the problem in the meantime.
+Last-Update: 2009-12-14
+--- a/tree.c
++++ b/tree.c
+@@ -76,6 +76,10 @@
+ enum bool {FALSE=0, TRUE};
+ #endif
+ 
++#ifndef PATH_MAX
++#define PATH_MAX 4096
++#endif
++
+ struct _info {
+   char *name;
+   char *lnk;

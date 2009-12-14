@@ -1,0 +1,16 @@
+Author: Florian Ernst <florian@debian.org>
+Description: Don't strip unconditionally during binary installation.
+ Instead, dh_strip will take care of this when needed.
+Forwarded: not-needed
+Last-Update: 2009-12-14
+--- a/Makefile
++++ b/Makefile
+@@ -86,7 +86,7 @@
+ 	install -d $(BINDIR)
+ 	install -d $(MANDIR)
+ 	if [ -e $(TREE_DEST) ]; then \
+-		install -s $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
++		install $(TREE_DEST) $(BINDIR)/$(TREE_DEST); \
+ 	fi
+ 	install man/$(MAN) $(MANDIR)/$(MAN)
+ 
