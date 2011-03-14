@@ -9,7 +9,7 @@ MANDIR = $(PREFIX)/share/man/man1
 # Leave LDFLAGS empty so symbol table and relocation information won't be
 # removed from the executable; dh_strip takes care of this when needed
 LDFLAGS =
-CFLAGS = -g -Wall -fomit-frame-pointer -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+CFLAGS = -g -Wall -fomit-frame-pointer -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 ifneq (,$(findstring noopt, $(DEB_BUILD_OPTIONS)))
         CFLAGS += -O0
 else
