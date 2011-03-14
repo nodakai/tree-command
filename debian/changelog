@@ -1,3 +1,14 @@
+tree (1.5.3-2) unstable; urgency=low
+
+  * [e7fcffa] debian/rules: enable using iswprint() instead of isprint() to
+    determine if a character is printable by passing DLINUX in CFLAGS.
+    Thanks to Nikolaus Schulz for the patch and Christoph Berg for the gentle
+    prod (Closes: #580725)
+  * [fa27103] debian/control: Depends += ${misc:Depends}, Standards-Version:
+    3.9.1
+
+ -- Florian Ernst <florian@debian.org>  Mon, 14 Mar 2011 18:33:48 +0100
+
 tree (1.5.3-1) unstable; urgency=low
 
   * Imported Upstream version 1.5.3, thanks to Steve Baker for explicitly
