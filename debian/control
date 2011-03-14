@@ -3,14 +3,14 @@ Section: utils
 Priority: optional
 Maintainer: Florian Ernst <florian@debian.org>
 Build-Depends: debhelper (>= 5)
-Standards-Version: 3.8.3
+Standards-Version: 3.9.1
 Homepage: http://mama.indstate.edu/users/ice/tree/
 Vcs-Browser: http://git.debian.org/?p=collab-maint/tree.git
 Vcs-Git: git://git.debian.org/collab-maint/tree.git
 
 Package: tree
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: displays directory tree, in color
  Displays an indented directory tree, using the same color assignments as
  ls, via the LS_COLORS environment variable.
