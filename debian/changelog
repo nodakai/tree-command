@@ -1,3 +1,20 @@
+tree (1.6.0-1) unstable; urgency=low
+
+  * [ebddf18] Imported Upstream version 1.6.0
+    Thanks to Steve for:
+    + dealing with symlink special case in $LS_COLORS (Closes: #586765,
+      also thanks to meillo for debugging)
+    + making --dirsfirst a meta-sort option (Closes: #492570)
+    + adding a --prune option to not show "empty" directories
+      (Closes: #308605)
+    + adding a --si option (Closes: #562971)
+  * [e19eb60] update packaging to use debhelper 8 w/ dh, complies with
+    Standards-Version: 3.9.2
+  * [865adaf] debian/copyright: update year
+  * [c6078ae] refresh/rename all patches
+
+ -- Florian Ernst <florian@debian.org>  Sat, 04 Feb 2012 14:32:03 +0100
+
 tree (1.5.3-2) unstable; urgency=low
 
   * [e7fcffa] debian/rules: enable using iswprint() instead of isprint() to
