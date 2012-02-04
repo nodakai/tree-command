@@ -1,2 +1,2 @@
-Makefile_nostrip.diff
-PATH_MAX.diff
+01_Makefile_fix
+02_PATH_MAX

@@ -5,17 +5,16 @@ Description: This symbol is only defined on systems with a fixed path length
  limit. The Hurd does not have such a limit, so it isn't defined. The program
  should deal with arbitrary long path names, but adding this patch will handle
  the problem in the meantime.
-Last-Update: 2009-12-14
+Last-Update: 2012-02-04
 --- a/tree.c
 +++ b/tree.c
-@@ -76,6 +76,10 @@
- enum bool {FALSE=0, TRUE};
+@@ -56,6 +56,9 @@
+   #endif
  #endif
  
 +#ifndef PATH_MAX
 +#define PATH_MAX 4096
 +#endif
-+
- struct _info {
-   char *name;
-   char *lnk;
+ 
+ /* Externs */
+ /* hash.c */
