@@ -1,2 +1,2 @@
 version=2
-ftp://mama.indstate.edu/linux/tree/tree-(.*)\.tgz
+http://mama.indstate.edu/users/ice/tree/src/tree-(.*)\.tgz
