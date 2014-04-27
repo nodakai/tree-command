@@ -3,14 +3,15 @@ Section: utils
 Priority: optional
 Maintainer: Florian Ernst <florian@debian.org>
 Build-Depends: debhelper (>= 8)
-Standards-Version: 3.9.2
+Standards-Version: 3.9.5
 Homepage: http://mama.indstate.edu/users/ice/tree/
-Vcs-Browser: http://git.debian.org/?p=collab-maint/tree.git
-Vcs-Git: git://git.debian.org/collab-maint/tree.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/tree.git
+Vcs-Git: git://anonscm.debian.org/collab-maint/tree.git
 
 Package: tree
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: displays directory tree, in color
- Displays an indented directory tree, using the same color assignments as
- ls, via the LS_COLORS environment variable.
+Description: displays an indented directory tree, in color
+ Tree is a recursive directory listing command that produces a depth indented
+ listing of files, which is colorized ala dircolors if the LS_COLORS environment
+ variable is set and output is to tty.
