@@ -9,17 +9,12 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-export prefix = $(CURDIR)/debian/tree/usr
-export MANDIR = $(prefix)/share/man/man1
-# Leave LDFLAGS empty so symbol table and relocation information won't be
-# removed from the executable; dh_strip takes care of this when needed
-export LDFLAGS =
-export CFLAGS = -g -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
-ifneq (,$(findstring noopt, $(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+
+prefix = $(CURDIR)/debian/tree/usr
+MANDIR = $(prefix)/share/man/man1
+CFLAGS += -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 
 override_dh_auto_build:
 	$(MAKE) CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"

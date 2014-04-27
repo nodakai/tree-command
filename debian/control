@@ -2,7 +2,7 @@ Source: tree
 Section: utils
 Priority: optional
 Maintainer: Florian Ernst <florian@debian.org>
-Build-Depends: debhelper (>= 8)
+Build-Depends: debhelper (>= 8), dpkg-dev (>= 1.16.1~)
 Standards-Version: 3.9.5
 Homepage: http://mama.indstate.edu/users/ice/tree/
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/tree.git
