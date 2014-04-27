@@ -8,13 +8,13 @@ Description: This symbol is only defined on systems with a fixed path length
 Last-Update: 2012-02-04
 --- a/tree.c
 +++ b/tree.c
-@@ -56,6 +56,9 @@
-   #endif
- #endif
+@@ -80,6 +80,9 @@
+ extern char *leftcode, *rightcode, *endcode;
+ extern const struct linedraw *linedraw;
  
 +#ifndef PATH_MAX
 +#define PATH_MAX 4096
 +#endif
  
- /* Externs */
- /* hash.c */
+ int main(int argc, char **argv)
+ {
