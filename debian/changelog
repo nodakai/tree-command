@@ -1,3 +1,18 @@
+tree (1.7.0-1) unstable; urgency=medium
+
+  * [63b3dfd] Imported Upstream version 1.7.0 (Closes: #745776)
+    - Return non-zero exit status on option errors, print usage to stdout when
+      not an error, add the posix '--' option terminator, Change -S
+      description to mean CP437 (console) output codes, not ASCII. (Ivan
+      Shmakov <oneingray@gmail.com>, closes: #691221)
+  * [b83741e] no more need to strip "-s" from install invocation in Makefile
+  * [52b8d04] refresh and rename remaining PATH_MAX patch
+  * [13467a3] debian/copyright: update year and attribution
+  * [e6803a7] debian/control: update Vcs-*, Description and Standards-Version
+  * [753a6ec] debian/rules: properly import buildflags
+
+ -- Florian Ernst <florian@debian.org>  Sun, 27 Apr 2014 10:34:21 +0200
+
 tree (1.6.0-1) unstable; urgency=low
 
   * [ebddf18] Imported Upstream version 1.6.0
