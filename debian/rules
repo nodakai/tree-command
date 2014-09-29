@@ -17,7 +17,7 @@ MANDIR = $(prefix)/share/man/man1
 CFLAGS += -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 
 override_dh_auto_build:
-	$(MAKE) CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
+	$(MAKE) CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 override_dh_auto_install:
 	$(MAKE) install prefix="$(prefix)" MANDIR="$(MANDIR)"
