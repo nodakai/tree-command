@@ -1,3 +1,11 @@
+tree (1.7.0-2) unstable; urgency=medium
+
+  * [6c2408b] debian/rules: override_dh_auto_clean to clean as upstream intended
+  * [da3780f] enable D_FORTIFY_SOURCE at build time, patch upstream Makefile.
+    Thanks to Guillaume Delacour <gui@iroqwa.org> (Closes: 760749)
+
+ -- Florian Ernst <florian@debian.org>  Mon, 29 Sep 2014 21:49:46 +0200
+
 tree (1.7.0-1) unstable; urgency=medium
 
   * [63b3dfd] Imported Upstream version 1.7.0 (Closes: #745776)
