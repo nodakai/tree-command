@@ -1,3 +1,10 @@
+tree (1.7.0-4) unstable; urgency=medium
+
+  * [ab9efee] Fix FTCBFS: Let dh_auto_build pass cross compilers.
+    Thanks to Helmut Grohne for report and patch (Closes: #839766)
+
+ -- Florian Ernst <florian@debian.org>  Tue, 04 Oct 2016 21:04:20 +0200
+
 tree (1.7.0-3) unstable; urgency=medium
 
   * [4cd4c45] simplify hardening, no upstream Makefile patching required
