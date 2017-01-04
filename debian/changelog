@@ -1,3 +1,12 @@
+tree (1.7.0-5) unstable; urgency=medium
+
+  * [240109e] fix manual formatting in manpage (Closes: #849907)
+  * [8b6a6ff] use debhelper compat version 9
+  * [dcaa104] Vcs-Browser: update to cgit and https
+  * [cdb2a1a] Standards-Version: 3.9.8 (no further changes required)
+
+ -- Florian Ernst <florian@debian.org>  Wed, 04 Jan 2017 17:48:38 +0100
+
 tree (1.7.0-4) unstable; urgency=medium
 
   * [ab9efee] Fix FTCBFS: Let dh_auto_build pass cross compilers.
