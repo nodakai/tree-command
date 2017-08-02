@@ -28,7 +28,7 @@ static char *hversion="\t\t tree v1.7.0 %s 1996 - 2014 by Steve Baker and Thomas
 /* Globals */
 bool dflag, lflag, pflag, sflag, Fflag, aflag, fflag, uflag, gflag;
 bool qflag, Nflag, Qflag, Dflag, inodeflag, devflag, hflag, Rflag;
-bool Hflag, siflag, cflag, Xflag, Jflag, duflag, pruneflag;
+bool Hflag, siflag, cflag, Xflag, Jflag, duflag, pruneflag, gitflag;
 bool noindent, force_color, nocolor, xdev, noreport, nolinks, flimit, dirsfirst;
 bool ignorecase, matchdirs;
 bool reverse;
@@ -96,7 +96,7 @@ int main(int argc, char **argv)
   Dflag = qflag = Nflag = Qflag = Rflag = hflag = Hflag = siflag = cflag = FALSE;
   noindent = force_color = nocolor = xdev = noreport = nolinks = reverse = FALSE;
   ignorecase = matchdirs = dirsfirst = inodeflag = devflag = Xflag = Jflag = FALSE;
-  duflag = pruneflag = FALSE;
+  duflag = pruneflag = gitflag = FALSE;
   flimit = 0;
   dirs = xmalloc(sizeof(int) * (maxdirs=4096));
   memset(dirs, 0, sizeof(int) * maxdirs);
@@ -358,6 +358,11 @@ int main(int argc, char **argv)
 	      pruneflag = TRUE;
 	      break;
 	    }
+	    if (!strncmp("--git",argv[i],5)) {
+	      j = strlen(argv[i])-1;
+	      gitflag = TRUE;
+	      break;
+	    }
 	    if (!strncmp("--timefmt",argv[i],9)) {
 	      j = 9;
 	      if (*(argv[i]+j) == '=') {
@@ -604,9 +609,10 @@ void usage(int n)
   fprintf(n < 2? stderr: stdout,
 	"usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]\n"
 	"\t[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]\n"
-	"\t[--help] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]\n"
-	"\t[--charset charset] [--filelimit[=]#] [--si] [--timefmt[=]<f>]\n"
-	"\t[--sort[=]<name>] [--matchdirs] [--ignore-case] [--] [<directory list>]\n");
+	"\t[--help] [--inodes] [--device] [--git] [--noreport] [--nolinks]\n"
+	"\t[--dirsfirst] [--charset charset] [--filelimit[=]#] [--si]\n"
+	"\t[--timefmt[=]<f>] [--sort[=]<name>] [--matchdirs] [--ignore-case] [--]\n"
+	"\t[<directory list>]\n");
   if (n < 2) return;
   fprintf(stdout,
 	"  ------- Listing options -------\n"
@@ -640,6 +646,7 @@ void usage(int n)
 	"  -F            Appends '/', '=', '*', '@', '|' or '>' as per ls -F.\n"
 	"  --inodes      Print inode number of each file.\n"
 	"  --device      Print device ID number to which each file belongs.\n"
+	"  --git         Print git branch name of git root directory.\n"
 	"  ------- Sorting options -------\n"
 	"  -v            Sort files alphanumerically by version.\n"
 	"  -t            Sort files by last modification time.\n"
