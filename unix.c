@@ -19,7 +19,7 @@
 #include "tree.h"
 
 extern bool dflag, lflag, pflag, sflag, Fflag, aflag, fflag, uflag, gflag;
-extern bool Dflag, inodeflag, devflag, Rflag, duflag, pruneflag;
+extern bool Dflag, inodeflag, devflag, Rflag, duflag, pruneflag, gitflag;
 extern bool noindent, force_color, xdev, nolinks, flimit;
 
 extern void (*listdir)(char *, int *, int *, u_long, dev_t);
@@ -30,9 +30,94 @@ extern int Level, *dirs, maxdirs;
 extern bool colorize, linktargetcolor;
 extern char *endcode;
 
+int file_exist(const char *filename)
+{
+  struct stat buffer;
+  return (stat (filename, &buffer) == 0);
+}
+
+static void show_git_branch(char* dir)
+{
+  const char *branch_file = strcat(dir, "/.git/HEAD");
+  const char *branch = NULL;
+
+  char buf[4096];
+  char out_buf[4096];
+  memset(&buf[0], 0, sizeof(buf));
+  memset(&out_buf[0], 0, sizeof(out_buf));
+
+  if(file_exist(branch_file))
+  {
+    FILE *file;
+    file = fopen(branch_file, "r");
+
+    if (file)
+    {
+      fscanf (file, "%s", buf);
+
+      if(!strncmp("ref:", buf, sizeof "ref:"))//git branch at HEAD
+      {
+        memset(&buf[0], 0, sizeof(buf));
+        fscanf (file, "%s", buf);
+
+        char delim[] = " /";
+        bool refs = FALSE;
+        bool heads = FALSE;
+        char *token;
+
+        for(token = strtok(buf, delim); token != NULL; token = strtok(NULL, delim))
+        {
+          if(!refs && !strncmp("refs", token, sizeof "refs"))
+          {
+            refs = TRUE;
+            continue;
+          }
+          if(!heads && !strncmp("heads", token, sizeof "heads"))
+          {
+            heads = TRUE;
+            continue;
+          }
+          if(refs && heads)
+          {
+            if(out_buf[0] != '\0')
+            {
+              strcat(out_buf, "/");
+            }
+            strcat(out_buf, token);
+          }
+        }
+        branch = &out_buf;
+      }
+      else //git branch detached from HEAD
+      {
+        rewind(file);
+        strcat(out_buf, "HEAD detached at ");
+        strncat(out_buf, buf, 7);
+        branch = &out_buf;
+      }
+
+      if (ferror(file))
+      {
+          /* deal with error */
+      }
+      fclose(file);
+    }
+  }
+  else // .git/HEAD doeasn't exist
+  {
+    branch = NULL;
+  }
+
+  if(branch)
+  {
+    printf(" [%s]", branch);
+  }
+}
+
 off_t unix_listdir(char *d, int *dt, int *ft, u_long lev, dev_t dev)
 {
   char *path;
+  char* git_path;
   bool nlf = FALSE, colored = FALSE;
   long pathsize = 0;
   struct _info **dir, **sav;
@@ -75,7 +160,8 @@ off_t unix_listdir(char *d, int *dt, int *ft, u_long lev, dev_t dev)
   fprintf(outfile,"\n");
   
   path = malloc(pathsize=4096);
-  
+  git_path = malloc(pathsize=4096);
+
   while(*dir) {
     if (!noindent) indent(lev);
 
@@ -107,7 +193,12 @@ off_t unix_listdir(char *d, int *dt, int *ft, u_long lev, dev_t dev)
     if (Fflag && !(*dir)->lnk) {
       if ((c = Ftype((*dir)->mode))) fputc(c, outfile);
     }
-    
+
+    if(gitflag) {
+    	sprintf(git_path,"%s/%s",d,path);
+    	show_git_branch(git_path);
+    }
+
     if ((*dir)->lnk) {
       fprintf(outfile," -> ");
       if (colorize) colored = color((*dir)->lnkmode,(*dir)->lnk,(*dir)->orphan,TRUE);
@@ -152,6 +243,7 @@ off_t unix_listdir(char *d, int *dt, int *ft, u_long lev, dev_t dev)
     dir++;
   }
   dirs[lev] = 0;
+  free(git_path);
   free(path);
   free_dir(sav);
   return 0;
