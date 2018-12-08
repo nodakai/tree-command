@@ -218,7 +218,7 @@ tree (1.4b2-0.2.1) unstable; urgency=low
 
 tree (1.4b2-0.2) unstable; urgency=low
 
-  * Moved man page to /usr/share/man/man1 (closes: bug#162259) 
+  * Moved man page to /usr/share/man/man1 (closes: bug#162259)
 
  -- Susan Kleinmann <sgk@debian.org>  Wed, 25 Sep 2002 09:51:18 -0400
 
@@ -323,10 +323,9 @@ tree (1.1-1) unstable; urgency=low
  -- Joey Hess <joeyh@master.debian.org>  Tue, 24 Sep 1996 23:32:40 -0400
 
 1.0-3
-  * Fixed m68k problem: made Makefile more portable 
+  * Fixed m68k problem: made Makefile more portable
   * Routine update of debian.rules
 1.0-2
   * changed priority to optional
-1.0-1   
+1.0-1
   * Initial release
-
