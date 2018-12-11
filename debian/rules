@@ -27,4 +27,4 @@ override_dh_auto_clean:
 	$(MAKE) clean
 
 %:
-	dh $@ 
+	dh $@
