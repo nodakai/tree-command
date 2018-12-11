@@ -1,3 +1,4 @@
+Last-Update: 2018-12-11
 Index: tree/doc/tree.1
 ===================================================================
 --- tree.orig/doc/tree.1
@@ -7,15 +8,6 @@ Index: tree/doc/tree.1
  .\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  .\"
 -...
- .TH TREE 1 "" "Tree 1.7.0"
+ .TH TREE 1 "" "Tree 1.8.0"
  .SH NAME
  tree \- list contents of directories in a tree-like format.
-@@ -99,7 +98,7 @@ alternate patterns.
- .B -I \fIpattern\fP
- Do not list those files that match the wild-card \fIpattern\fP.
- .PP
-- .TP
-+.TP
- .B --ignore-case
- If a match pattern is specified by the \fB-P\fP or \fB-I\fP option, this will
- cause the pattern to match without regards to the case of each letter.
