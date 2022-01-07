@@ -1,3 +1,22 @@
+tree (2.0.1-1) unstable; urgency=medium
+
+  * [990450f] New upstream version 2.0.0
+    - Properly sort --fromfile input (Chentao Credungtao via Debian)
+      (Closes: #942020)
+    - Make tree colorization use reset (rs code in dir_colors,) not normal
+      color when resetting attributes (Filips Romāns via Debian)
+      (Closes: #962581)
+  * [0474490] New upstream version 2.0.1
+  * [d190828] refresh patches
+  * [ec7cb69] debian/patches/PATH_MAX: dropped, superseded by upstream's 2.0.0
+  * [561d519] debian/rules: update to match upstream's Makefile
+  * [797e636] Bump debhelper from deprecated 9 to debhelper-compat (= 13) in B-D
+  * [a60db11] debian/watch: upgrade to recommended version
+  * [f6cee15] debian/copyright: update year
+  * [af67813] packaging now conforming with current Standards-Version 4.6.0.1
+
+ -- Florian Ernst <florian@debian.org>  Fri, 07 Jan 2022 16:58:29 +0100
+
 tree (1.8.0-1) unstable; urgency=medium
 
   * [23e80a5] New upstream version 1.8.0 (Closes: #915941)
