@@ -1,4 +1,4 @@
-Last-Update: 2018-12-11
+Last-Update: 2022-01-07
 Index: tree/doc/tree.1
 ===================================================================
 --- tree.orig/doc/tree.1
@@ -8,6 +8,18 @@ Index: tree/doc/tree.1
  .\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  .\"
 -...
- .TH TREE 1 "" "Tree 1.8.0"
+ .TH TREE 1 "" "Tree 2.0.0"
  .SH NAME
  tree \- list contents of directories in a tree-like format.
+Index: tree/doc/tree.fr.1
+===================================================================
+--- tree.orig/doc/tree.fr.1
++++ tree/doc/tree.fr.1
+@@ -6,7 +6,6 @@
+ .\" warranties, including, without limitation, the implied warranties
+ .\" of merchantability and fitness for a particular purpose.
+ .\"
+-...
+ .V= $Header: tree.1 1.4 1996 - 2001 $
+ .TH TREE 1 "\*(V)" "Manuel du Programmeur UNIX"
+ .SH NOM
