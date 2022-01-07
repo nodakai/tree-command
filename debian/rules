@@ -13,15 +13,15 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
-prefix = $(CURDIR)/debian/tree/usr
-MANDIR = $(prefix)/share/man/man1
+PREFIX = $(CURDIR)/debian/tree/usr
+MANDIR = $(PREFIX)/share/man
 CFLAGS += -Wall -DLINUX -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 
 override_dh_auto_build:
 	dh_auto_build -- CFLAGS="$(CFLAGS) $(CPPFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 override_dh_auto_install:
-	$(MAKE) install prefix="$(prefix)" MANDIR="$(MANDIR)"
+	$(MAKE) install PREFIX="$(PREFIX)" MANDIR="$(MANDIR)"
 
 override_dh_auto_clean:
 	$(MAKE) clean
