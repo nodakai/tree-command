@@ -1,3 +1,9 @@
+tree (2.0.1-2) unstable; urgency=medium
+
+  * [98eb8c4] also install French manpage added in upstream's 2.0.0
+
+ -- Florian Ernst <florian@debian.org>  Sat, 08 Jan 2022 10:26:06 +0100
+
 tree (2.0.1-1) unstable; urgency=medium
 
   * [990450f] New upstream version 2.0.0
